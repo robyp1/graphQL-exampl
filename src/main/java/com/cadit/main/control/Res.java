@@ -19,7 +19,7 @@ public class Res {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getHelloMsg(@PathParam("name") String name){
         //redirect
-        URI getMessageForUri = uriInfo.getBaseUriBuilder().path(MessageResponse.class).path(MessageResponse.class, "getMessageFor").build(name);
+        URI getMessageForUri = uriInfo.getBaseUriBuilder().path(MessageResponse.class, "getMessageFor").build(name);
         return Response.status(Response.Status.SEE_OTHER).header(HttpHeaders.LOCATION,getMessageForUri).build();
     }
 }
